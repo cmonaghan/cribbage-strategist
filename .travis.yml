@@ -1,6 +1,13 @@
 language: node_js
 node_js:
-  - "0.11"
-  - "0.10"
-  - "0.8"
-  - "0.6"
+- '0.11'
+- '0.10'
+- '0.8'
+- '0.6'
+deploy:
+  provider: heroku
+  api_key:
+    secure: JynXT0d1DgoaJJ0eY507l5qW2ZB0CV7CLtJ0BhvXfvZ5Corn9Zm7kM2XT6/EgrRUZNEXWcPtFKQOYzGRLaNzcgSDWNpTf1JOfyWrWfzZrSE14IztLzG4+n+7HO4hIKKm4M8NcYZX40Ouhfr2eDmq8TUY5R2OrXM7DNXOLRj1SYE=
+  app: cribbagestrategist
+  on:
+    repo: cmonaghan/cribbage-strategist
