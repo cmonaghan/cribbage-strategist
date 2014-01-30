@@ -1,1 +1,1 @@
-console.log "Coffeescript has loaded and the mothership has landed."
+console.log "Coffeescript has loaded. The mothership has landed."
