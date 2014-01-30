@@ -1,0 +1,1 @@
+console.log "Coffeescript has loaded and the mothership has landed."
