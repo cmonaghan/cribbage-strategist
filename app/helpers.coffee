@@ -1,3 +1,5 @@
+$ = require "jquery"
+
 # ======= Constructors ======= #
 Card = (value, suit) ->
   this.value = value
