@@ -27,7 +27,7 @@ printCardsDealt = function() {
     _results = [];
     for (_i = 0, _len = cardsDealt.length; _i < _len; _i++) {
       card = cardsDealt[_i];
-      _results.push($('.hand').append('<div>value: ' + card.value + ', suit: ' + card.suit + '</div>'));
+      _results.push($(".hand").append("<div>(" + card.value + ", " + card.suit + ")</div>"));
     }
     return _results;
   });
@@ -35,6 +35,6 @@ printCardsDealt = function() {
 
 printHandScore = function(hand) {
   return $(function() {
-    return $('.score').append('<div>If you toss your (' + hand.cardsTossed[0].value + ', ' + hand.cardsTossed[0].suit + '), and your (' + hand.cardsTossed[1].value + ', ' + hand.cardsTossed[1].suit + '), then your score will be <b>' + hand.score + '</b></div>');
+    return $(".score").append("<div>If you toss your (" + hand.cardsTossed[0].value + ", " + hand.cardsTossed[0].suit + "), and your (" + hand.cardsTossed[1].value + ", " + hand.cardsTossed[1].suit + "), then your score will be <b>" + hand.score + "</b></div>");
   });
 };
