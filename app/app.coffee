@@ -7,62 +7,55 @@ Card = (value, suit) ->
 Hand = (fourCardArr, twoTossedArr) ->
   this.cardsKept = fourCardArr
   this.cardsTossed = twoTossedArr
-  this.expectedValue = 0
+  this.score = 0           # guaranteed score resulting from the cards currently in the player's hand
+  this.expectedValue = 0   # guaranteed score + expected value resuling from possible card flips (excludes pegging)
 
 # Generate 6 random cards
-cardsDealt = []
+dealSixRandomCards = ->
+  cardsDealt = []
 
-i = 0
-while i < 6
-  value = random(13)
-  suit = random(4)
-  cardsDealt.push new Card(value, suit)
-  i++
+  i = 0
+  while i < 6
+    value = random(13)
+    suit = random(4)
+    cardsDealt.push new Card(value, suit)
+    i++
+  cardsDealt
 
-console.log cardsDealt
+cardsDealt = dealSixRandomCards()
 
-# Add all possible hands and score each
-possibleHands = []
+# Add all possible hands
+findAllPossibleHands = (cardsDealt) ->
+  possibleHands = []
 
-i = 0
-while i < cardsDealt.length
-  j = 0
-  while j < cardsDealt.length - 1
-    fourCardArr = cardsDealt.slice()
-    twoTossedArr = []
-    twoTossedArr.push fourCardArr.splice i, 1
-    twoTossedArr.push fourCardArr.splice j, 1
-    possibleHands.push new Hand fourCardArr, twoTossedArr
-    j++
-  i++
+  i = 0
+  while i < cardsDealt.length
+    j = 0
+    while j < cardsDealt.length - 1
+      fourCardArr = cardsDealt.slice()
+      twoTossedArr = []
+      twoTossedArr.push fourCardArr.splice i, 1
+      twoTossedArr.push fourCardArr.splice j, 1
+      possibleHands.push new Hand fourCardArr, twoTossedArr
+      j++
+    i++
+  possibleHands
 
-console.log possibleHands
+possibleHands = findAllPossibleHands cardsDealt
+
+# Score each possible hand
+scorePossibleHands = (possibleHands) ->
+  i = 0
+  while i < possibleHands.length
+    possibleHands[i].score = scoreHand possibleHands[i]
+    i++
+  possibleHands
+
+console.log scorePossibleHands possibleHands
+
+# Score expected value
 
 # Sort possible hands from highest expected value to lowest expected value
 
-
-# ======= Scoring helpers ======= #
-scoreHand = (hand) ->
-  score = 0
-  score += scoreFifteens(hand)
-  score += scorePairs(hand)
-  score += scoreRuns(hand)
-  score += scoreFlush(hand)
-  score += scoreNobs(hand)
-  hand.score = score
-
-scoreFifteens = (hand) ->
-
-
-scorePairs = (hand) ->
-
-
-scoreRuns = (hand) ->
-
-
-scoreFlush = (hand) ->
-
-
-scoreNobs = (hand) ->
 
 
