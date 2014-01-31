@@ -24,6 +24,8 @@ dealSixRandomCards = ->
 
 cardsDealt = dealSixRandomCards()
 
+printCardsDealt()
+
 # Add all possible hands
 findAllPossibleHands = (cardsDealt) ->
   possibleHands = []
@@ -34,8 +36,8 @@ findAllPossibleHands = (cardsDealt) ->
     while j < cardsDealt.length - 1
       fourCardArr = cardsDealt.slice()
       twoTossedArr = []
-      twoTossedArr.push fourCardArr.splice i, 1
-      twoTossedArr.push fourCardArr.splice j, 1
+      twoTossedArr.push (fourCardArr.splice i, 1)[0]
+      twoTossedArr.push (fourCardArr.splice j, 1)[0]
       possibleHands.push new Hand fourCardArr, twoTossedArr
       j++
     i++
@@ -51,7 +53,7 @@ scorePossibleHands = (possibleHands) ->
     i++
   possibleHands
 
-console.log scorePossibleHands possibleHands
+printHandScore hand for hand in possibleHands
 
 # Score expected value
 
