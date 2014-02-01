@@ -15,13 +15,21 @@ module.exports = function(grunt) {
           transform: ['coffeeify']
         }
       }
+    },
+    jade: {
+      compile: {
+        files: {
+          "public/html/index.html": ["app/templates/*.jade"]
+        }
+      }
     }
   });
 
   // Load plugins
   grunt.loadNpmTasks('grunt-coffeelint');
   grunt.loadNpmTasks('grunt-browserify');
+  grunt.loadNpmTasks('grunt-contrib-jade');
 
   // Default tasks
-  grunt.registerTask('default', ['coffeelint', 'browserify']);
+  grunt.registerTask('default', ['coffeelint', 'browserify', 'jade']);
 };

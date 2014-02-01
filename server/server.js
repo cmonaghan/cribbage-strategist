@@ -6,8 +6,7 @@ var app = express();
 app.use(express.static('public'));
 
 app.get('/', function(req,res){
-  var html = jade.renderFile('./index.jade');
-  res.send(html);
+  res.sendfile( path.join(__dirname, '../public/html/index.html'));
 });
 
 var port = Number(process.env.PORT || 5000);
