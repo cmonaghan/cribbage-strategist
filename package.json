@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/.bin/karma start karma-config.js --single-run --browsers PhantomJS",
-    "postinstall": "./node_modules/.bin/browserify public/scripts/app.js -o public/scripts/bundle.js"
+    "postinstall": "grunt"
   },
   "repository": {
     "type": "git",
