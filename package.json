@@ -4,8 +4,7 @@
   "description": "An algorithm to determine the mathematically best cards to throw into the crib.",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/karma start karma-config.js --single-run --browsers PhantomJS",
-    "postinstall": "grunt"
+    "test": "./node_modules/.bin/karma start karma-config.js --single-run --browsers PhantomJS"
   },
   "repository": {
     "type": "git",
@@ -46,6 +45,7 @@
     "grunt-contrib-jshint": "~0.8.0",
     "grunt-coffeelint": "0.0.8",
     "grunt-browserify": "~1.3.0",
-    "grunt-contrib-jade": "~0.9.1"
+    "grunt-contrib-jade": "~0.9.1",
+    "grunt-karma": "~0.6.2"
   }
 }

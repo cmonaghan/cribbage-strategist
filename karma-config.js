@@ -16,7 +16,7 @@ module.exports = function(config) {
     files: [
       // 'public/scripts/helpers.js',
       // 'public/scripts/app.js',
-      'public/scripts/bundle.js',
+      'public/scripts/main.js',
       'test/*Spec.js'
     ],
 

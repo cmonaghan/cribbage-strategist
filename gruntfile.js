@@ -22,6 +22,13 @@ module.exports = function(grunt) {
           "public/html/index.html": ["app/templates/*.jade"]
         }
       }
+    },
+    karma: {
+      unit: {
+        configFile: 'karma-config.js',
+        autowatch: true,
+        // background: true
+      }
     }
   });
 
@@ -29,7 +36,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-coffeelint');
   grunt.loadNpmTasks('grunt-browserify');
   grunt.loadNpmTasks('grunt-contrib-jade');
+  grunt.loadNpmTasks('grunt-karma');
 
   // Default tasks
-  grunt.registerTask('default', ['coffeelint', 'browserify', 'jade']);
+  grunt.registerTask('default', ['coffeelint', 'browserify', 'jade', 'karma']);
 };
