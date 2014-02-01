@@ -12,3 +12,5 @@ possibleHands = helpers.findAllPossibleHands(cardsDealt);
 possibleHands = helpers.scorePossibleHands(possibleHands);
 
 helpers.printAllPossibleHandScores(possibleHands);
+
+console.log(helpers.valueSum(possibleHands[1]));

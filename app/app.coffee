@@ -11,6 +11,7 @@ possibleHands = helpers.scorePossibleHands possibleHands
 
 helpers.printAllPossibleHandScores possibleHands
 
+console.log helpers.valueSum(possibleHands[1]);
 
 # Score expected value
 

@@ -22,7 +22,7 @@ scorePossibleHands = (possibleHands) ->
 
 scoreIndividualHand = (hand) ->
   score = 0
-  score += scoreFifteens(hand)
+  hand = scoreFifteens(hand)
   # score += scorePairs(hand)
   # score += scoreRuns(hand)
   # score += scoreFlush(hand)
@@ -30,7 +30,11 @@ scoreIndividualHand = (hand) ->
   score
 
 scoreFifteens = (hand) ->
-  hand.score = 5
+  console.log valueSum hand
+
+  threeCardFifteen = (hand) ->
+    # hand.score += 2 for card in hand if
+  hand = threeCardFifteen hand
 
 scorePairs = (hand) ->
 
@@ -47,6 +51,13 @@ scoreNobs = (hand) ->
 # Generate random integers between 1 and the num entered
 random = (num) ->
   parseInt Math.random() * num + 1
+
+valueSum = (cards) ->
+  sum = 0
+  sum += card.value for card in cards
+  sum
+
+module.exports.valueSum = valueSum
 
 dealSixRandomCards = ->
   cardsDealt = []
