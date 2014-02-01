@@ -9,8 +9,11 @@ Card = (value, suit) ->
 Hand = (fourCardArr, twoTossedArr) ->
   this.cardsKept = fourCardArr
   this.cardsTossed = twoTossedArr
-  this.score = 0           # guaranteed score resulting from the cards currently in the player's hand
-  this.expectedValue = 0   # guaranteed score + expected value resuling from possible card flips (excludes pegging)
+  # guaranteed score resulting from the cards currently in the player's hand
+  this.score = 0
+  # guaranteed score + expected value resulting
+  # from possible card flips (excludes pegging)
+  this.expectedValue = 0
 
 # ======= Scoring helpers ======= #
 scorePossibleHands = (possibleHands) ->
@@ -88,7 +91,8 @@ findAllPossibleHands = (cardsDealt) ->
 
 printCardsDealt = (cardsDealt) ->
   $ ->
-    $(".hand").append("<div>(#{ card.value }, #{ card.suit })</div>") for card in cardsDealt
+    $(".hand").append("<div>(#{ card.value }, #{ card.suit })</div>") \
+        for card in cardsDealt
 
 printAllPossibleHandScores = (possibleHands) ->
   printIndividualHandScore hand for hand in possibleHands
@@ -96,8 +100,10 @@ printAllPossibleHandScores = (possibleHands) ->
 printIndividualHandScore = (hand) ->
   $ ->
     # console.log hand.cardsTossed[1][0].value
-    $(".score").append("<div>If you toss your (#{ hand.cardsTossed[0].value }, #{ hand.cardsTossed[0].suit }),
-      and your (#{ hand.cardsTossed[1].value }, #{ hand.cardsTossed[1].suit }), then your score will be <b>#{ hand.score }</b></div>")
+    $(".score").append("<div>If you toss your
+      (#{ hand.cardsTossed[0].value }, #{ hand.cardsTossed[0].suit }), and your
+      (#{ hand.cardsTossed[1].value }, #{ hand.cardsTossed[1].suit }),
+      then your score will be <b>#{ hand.score }</b></div>")
 
 module.exports.scorePossibleHands = scorePossibleHands
 module.exports.dealSixRandomCards = dealSixRandomCards

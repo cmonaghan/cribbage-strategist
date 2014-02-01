@@ -4,7 +4,7 @@ module.exports = function(grunt) {
   // configure tasks
   grunt.initConfig({
     coffeelint: {
-      app: ['app/*.coffee']
+      app: ['app/coffee/*.coffee']
     },
     browserify: {
       dist: {
@@ -27,7 +27,17 @@ module.exports = function(grunt) {
       unit: {
         configFile: 'karma-config.js',
         autowatch: true,
-        // background: true
+        background: true
+      }
+    },
+    watch: {
+      coffee: {
+        files: ['app/coffee/*.coffee'],
+        tasks: ['coffeelint', 'browserify', 'karma'],
+      },
+      jade: {
+        files: ['app/templates/*.jade'],
+        tasks: ['jade', 'karma'],
       }
     }
   });
@@ -37,7 +47,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-browserify');
   grunt.loadNpmTasks('grunt-contrib-jade');
   grunt.loadNpmTasks('grunt-karma');
+  grunt.loadNpmTasks('grunt-contrib-watch');
 
   // Default tasks
-  grunt.registerTask('default', ['coffeelint', 'browserify', 'jade', 'karma']);
+  grunt.registerTask('default', ['coffeelint', 'browserify', 'jade', 'karma', 'watch']);
 };
