@@ -7,6 +7,8 @@ helpers.printCardsDealt cardsDealt
 
 possibleHands = helpers.findAllPossibleHands cardsDealt
 
+possibleHands = helpers.scorePossibleHands possibleHands
+
 helpers.printAllPossibleHandScores possibleHands
 
 

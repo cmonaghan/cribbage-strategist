@@ -22,7 +22,7 @@ scorePossibleHands = (possibleHands) ->
 
 scoreIndividualHand = (hand) ->
   score = 0
-  # score += scoreFifteens(hand)
+  score += scoreFifteens(hand)
   # score += scorePairs(hand)
   # score += scoreRuns(hand)
   # score += scoreFlush(hand)
@@ -30,7 +30,7 @@ scoreIndividualHand = (hand) ->
   score
 
 scoreFifteens = (hand) ->
-
+  hand.score = 5
 
 scorePairs = (hand) ->
 
@@ -88,6 +88,7 @@ printIndividualHandScore = (hand) ->
     $(".score").append("<div>If you toss your (#{ hand.cardsTossed[0].value }, #{ hand.cardsTossed[0].suit }),
       and your (#{ hand.cardsTossed[1].value }, #{ hand.cardsTossed[1].suit }), then your score will be <b>#{ hand.score }</b></div>")
 
+module.exports.scorePossibleHands = scorePossibleHands
 module.exports.dealSixRandomCards = dealSixRandomCards
 module.exports.printCardsDealt = printCardsDealt
 module.exports.findAllPossibleHands = findAllPossibleHands

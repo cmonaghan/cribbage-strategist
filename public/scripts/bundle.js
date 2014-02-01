@@ -9123,6 +9123,8 @@ helpers.printCardsDealt(cardsDealt);
 
 possibleHands = helpers.findAllPossibleHands(cardsDealt);
 
+possibleHands = helpers.scorePossibleHands(possibleHands);
+
 helpers.printAllPossibleHandScores(possibleHands);
 
 },{"./helpers.js":3}],3:[function(require,module,exports){
@@ -9157,10 +9159,13 @@ scorePossibleHands = function(possibleHands) {
 scoreIndividualHand = function(hand) {
   var score;
   score = 0;
+  score += scoreFifteens(hand);
   return score;
 };
 
-scoreFifteens = function(hand) {};
+scoreFifteens = function(hand) {
+  return hand.score = 5;
+};
 
 scorePairs = function(hand) {};
 
@@ -9233,6 +9238,8 @@ printIndividualHandScore = function(hand) {
     return $(".score").append("<div>If you toss your (" + hand.cardsTossed[0].value + ", " + hand.cardsTossed[0].suit + "), and your (" + hand.cardsTossed[1].value + ", " + hand.cardsTossed[1].suit + "), then your score will be <b>" + hand.score + "</b></div>");
   });
 };
+
+module.exports.scorePossibleHands = scorePossibleHands;
 
 module.exports.dealSixRandomCards = dealSixRandomCards;
 
