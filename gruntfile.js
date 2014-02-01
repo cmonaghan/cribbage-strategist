@@ -1,15 +1,27 @@
 module.exports = function(grunt) {
   // Do grunt-related things in here
 
+  // configure tasks
   grunt.initConfig({
     coffeelint: {
       app: ['app/*.coffee']
+    },
+    browserify: {
+      dist: {
+        files: {
+          'public/scripts/main.js': ['app/*.coffee']
+        },
+        options: {
+          transform: ['coffeeify']
+        }
+      }
     }
   });
 
-  // Load the plugin that provides the "coffeelint" task.
+  // Load plugins
   grunt.loadNpmTasks('grunt-coffeelint');
+  grunt.loadNpmTasks('grunt-browserify');
 
-  // Default task(s).
-  grunt.registerTask('default', ['coffeelint']);
+  // Default tasks
+  grunt.registerTask('default', ['coffeelint', 'browserify']);
 };

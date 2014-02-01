@@ -1,4 +1,4 @@
-helpers = require "./helpers.js"
+helpers = require "./helpers.coffee"
 
 
 cardsDealt = helpers.dealSixRandomCards()
