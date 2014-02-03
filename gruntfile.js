@@ -9,7 +9,7 @@ module.exports = function(grunt) {
     browserify: {
       dist: {
         files: {
-          'public/scripts/main.js': ['app/*.coffee']
+          'public/scripts/main.js': ['app/coffee/app.coffee']
         },
         options: {
           transform: ['coffeeify']
