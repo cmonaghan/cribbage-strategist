@@ -14,10 +14,9 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      // 'public/scripts/helpers.js',
-      // 'public/scripts/app.js',
-      'public/html/index.html',
-      'public/scripts/main.js',
+      // 'public/html/index.html',
+      // 'public/scripts/main.js',
+      'public/scripts/test.js',
       'test/*Spec.js'
     ],
 

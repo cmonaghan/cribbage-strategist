@@ -4,20 +4,26 @@ describe("A test", function(){
   });
 });
 
-describe("Cards Dealt", function() {
-
-  beforeEach(function(){
-    var cardsDealt = [];
-    cardsDealt.push( new Card(10, 1) );
-    cardsDealt.push( new Card(5, 1) );
-    cardsDealt.push( new Card(6, 1) );
-    cardsDealt.push( new Card(7, 1) );
-    cardsDealt.push( new Card(6, 1) );
-    cardsDealt.push( new Card(10, 2) );
-  });
-
-  it("should have 30 possible hands", function() {
-    var possibleHands = findAllPossibleHands(cardsDealt);
-    expect(possibleHands.length).toBe(30);
+describe("Teste", function(){
+  it("should be true", function(){
+    expect(teste).toBe(true);
   });
 });
+
+// describe("Cards Dealt", function() {
+
+//   beforeEach(function(){
+//     var cardsDealt = [];
+//     cardsDealt.push( new Card(10, 1) );
+//     cardsDealt.push( new Card(5, 1) );
+//     cardsDealt.push( new Card(6, 1) );
+//     cardsDealt.push( new Card(7, 1) );
+//     cardsDealt.push( new Card(6, 1) );
+//     cardsDealt.push( new Card(10, 2) );
+//   });
+
+//   it("should have 30 possible hands", function() {
+//     var possibleHands = findAllPossibleHands(cardsDealt);
+//     expect(possibleHands.length).toBe(30);
+//   });
+// });
