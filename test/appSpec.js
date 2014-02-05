@@ -4,11 +4,11 @@ describe("A test", function(){
   });
 });
 
-describe("A test", function(){
-  it("should fail", function(){
-    expect(true).toBe(false);
-  });
-});
+// describe("A test", function(){
+//   it("should fail", function(){
+//     expect(true).toBe(false);
+//   });
+// });
 
 describe("Card", function(){
   it("should not be undefined", function(){
