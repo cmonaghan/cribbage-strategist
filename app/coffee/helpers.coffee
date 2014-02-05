@@ -6,7 +6,7 @@ window.Card = (value, suit) ->
   this.suit = suit
   this.scoreValue = value
 
-Hand = (fourCardArr, twoTossedArr) ->
+window.Hand = (fourCardArr, twoTossedArr) ->
   this.cardsKept = fourCardArr
   this.cardsTossed = twoTossedArr
   # guaranteed score resulting from the cards currently in the player's hand

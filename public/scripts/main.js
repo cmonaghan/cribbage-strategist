@@ -15,7 +15,7 @@ helpers.printAllPossibleHandScores(possibleHands);
 
 
 },{"./helpers.coffee":2}],2:[function(require,module,exports){
-var $, Hand, dealSixRandomCards, printAllPossibleHandScores, printCardsDealt, printIndividualHandScore, random, scoreFifteens, scoreFlush, scoreIndividualHand, scoreNobs, scorePairs, scorePossibleHands, scoreRuns, valueSum;
+var $, dealSixRandomCards, printAllPossibleHandScores, printCardsDealt, printIndividualHandScore, random, scoreFifteens, scoreFlush, scoreIndividualHand, scoreNobs, scorePairs, scorePossibleHands, scoreRuns, valueSum;
 
 $ = require("jquery");
 
@@ -25,7 +25,7 @@ window.Card = function(value, suit) {
   return this.scoreValue = value;
 };
 
-Hand = function(fourCardArr, twoTossedArr) {
+window.Hand = function(fourCardArr, twoTossedArr) {
   this.cardsKept = fourCardArr;
   this.cardsTossed = twoTossedArr;
   this.score = 0;
