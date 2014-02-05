@@ -27,8 +27,7 @@ module.exports = function(grunt) {
       unit: {
         configFile: 'karma-config.js',
         autowatch: true,
-        singleRun: true,
-        // background: true
+        singleRun: true
       }
     },
     watch: {
