@@ -4,9 +4,15 @@ describe("A test", function(){
   });
 });
 
-describe("Teste", function(){
-  it("should be true", function(){
-    expect(teste).toBe(true);
+describe("A test", function(){
+  it("should fail", function(){
+    expect(true).toBe(false);
+  });
+});
+
+describe("Card", function(){
+  it("should not be undefined", function(){
+    expect(typeof Card).not.toBe('undefined');
   });
 });
 

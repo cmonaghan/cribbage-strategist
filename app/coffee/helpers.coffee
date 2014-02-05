@@ -1,7 +1,7 @@
 $ = require "jquery"
 
 # ======= Constructors ======= #
-Card = (value, suit) ->
+window.Card = (value, suit) ->
   this.value = value
   this.suit = suit
   this.scoreValue = value
@@ -33,7 +33,7 @@ scoreIndividualHand = (hand) ->
   score
 
 scoreFifteens = (hand) ->
-  console.log valueSum hand
+  # console.log valueSum hand
 
   threeCardFifteen = (hand) ->
     # hand.score += 2 for card in hand if

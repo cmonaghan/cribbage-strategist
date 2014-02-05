@@ -38,6 +38,10 @@ module.exports = function(grunt) {
       jade: {
         files: ['app/templates/*.jade'],
         tasks: ['jade', 'karma'],
+      },
+      karma: {
+        files: ['test/*Spec.js'],
+        tasks: ['karma']
       }
     }
   });

@@ -13,15 +13,13 @@ possibleHands = helpers.scorePossibleHands(possibleHands);
 
 helpers.printAllPossibleHandScores(possibleHands);
 
-console.log(helpers.valueSum(possibleHands[1]));
-
 
 },{"./helpers.coffee":2}],2:[function(require,module,exports){
-var $, Card, Hand, dealSixRandomCards, findAllPossibleHands, printAllPossibleHandScores, printCardsDealt, printIndividualHandScore, random, scoreFifteens, scoreFlush, scoreIndividualHand, scoreNobs, scorePairs, scorePossibleHands, scoreRuns, valueSum;
+var $, Hand, dealSixRandomCards, findAllPossibleHands, printAllPossibleHandScores, printCardsDealt, printIndividualHandScore, random, scoreFifteens, scoreFlush, scoreIndividualHand, scoreNobs, scorePairs, scorePossibleHands, scoreRuns, valueSum;
 
 $ = require("jquery");
 
-Card = function(value, suit) {
+window.Card = function(value, suit) {
   this.value = value;
   this.suit = suit;
   return this.scoreValue = value;
@@ -53,7 +51,6 @@ scoreIndividualHand = function(hand) {
 
 scoreFifteens = function(hand) {
   var threeCardFifteen;
-  console.log(valueSum(hand));
   threeCardFifteen = function(hand) {};
   return hand = threeCardFifteen(hand);
 };
