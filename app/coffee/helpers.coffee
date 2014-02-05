@@ -73,7 +73,7 @@ dealSixRandomCards = ->
     i++
   cardsDealt
 
-findAllPossibleHands = (cardsDealt) ->
+window.findAllPossibleHands = (cardsDealt) ->
   possibleHands = []
 
   i = 0

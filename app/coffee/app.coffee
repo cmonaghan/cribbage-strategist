@@ -1,7 +1,7 @@
 helpers = require "./helpers.coffee"
 
 
-cardsDealt = helpers.dealSixRandomCards()
+window.cardsDealt = helpers.dealSixRandomCards()
 
 helpers.printCardsDealt cardsDealt
 
