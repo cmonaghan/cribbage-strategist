@@ -4,11 +4,11 @@ describe("A test", function(){
   });
 });
 
-describe("Variables declared with 'window'", function(){
-  it("should be available for testing", function(){
-    expect(typeof Card).not.toBe('undefined');
-  });
-});
+// describe("Variables declared with 'window'", function(){
+//   it("should be available for testing", function(){
+//     expect(typeof Card).not.toBe('undefined');
+//   });
+// });
 
 
 describe("Cards Dealt", function(){
