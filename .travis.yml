@@ -9,3 +9,6 @@ deploy:
   app: cribbagestrategist
   on:
     repo: cmonaghan/cribbage-strategist
+
+notifications:
+  email: false
