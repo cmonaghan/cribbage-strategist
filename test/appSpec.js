@@ -34,6 +34,11 @@ describe("Cards Dealt", function(){
       expect(hand.cardsKept.length).toBe(4);
       expect(hand.cardsTossed.length).toBe(2);
     });
+
+    it("should score fifteens for 2 points", function(){
+      var score = scoreFifteens(hand);
+      expect(score).toBe(2);
+    });
   });
 
 });

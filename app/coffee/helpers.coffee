@@ -32,7 +32,7 @@ scoreIndividualHand = (hand) ->
   # score += scoreNobs(hand)
   score
 
-scoreFifteens = (hand) ->
+window.scoreFifteens = (hand) ->
   # console.log valueSum hand
 
   threeCardFifteen = (hand) ->
@@ -60,8 +60,6 @@ valueSum = (cards) ->
   sum += card.value for card in cards
   sum
 
-module.exports.valueSum = valueSum
-
 dealSixRandomCards = ->
   cardsDealt = []
 
@@ -71,6 +69,16 @@ dealSixRandomCards = ->
     suit = random(4)
     cardsDealt.push new Card(value, suit)
     i++
+  cardsDealt
+
+dealSixDefinedCards = ->
+  cardsDealt = []
+  cardsDealt.push new Card(10, 1)
+  cardsDealt.push new Card(5, 1)
+  cardsDealt.push new Card(6, 1)
+  cardsDealt.push new Card(7, 1)
+  cardsDealt.push new Card(6, 1)
+  cardsDealt.push new Card(10, 2)
   cardsDealt
 
 window.findAllPossibleHands = (cardsDealt) ->
@@ -89,6 +97,7 @@ window.findAllPossibleHands = (cardsDealt) ->
     i++
   possibleHands
 
+# ======= Printing helpers ======= #
 printCardsDealt = (cardsDealt) ->
   $ ->
     $(".hand").append("<div>(#{ card.value }, #{ card.suit })</div>") \
@@ -105,8 +114,11 @@ printIndividualHandScore = (hand) ->
       (#{ hand.cardsTossed[1].value }, #{ hand.cardsTossed[1].suit }),
       then your score will be <b>#{ hand.score }</b></div>")
 
+# ======= Exports ======= #
 module.exports.scorePossibleHands = scorePossibleHands
 module.exports.dealSixRandomCards = dealSixRandomCards
+module.exports.dealSixDefinedCards = dealSixDefinedCards
 module.exports.printCardsDealt = printCardsDealt
 module.exports.findAllPossibleHands = findAllPossibleHands
 module.exports.printAllPossibleHandScores = printAllPossibleHandScores
+module.exports.valueSum = valueSum

@@ -1,21 +1,17 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-var helpers, possibleHands;
+var cardsDealt, helpers, possibleHands;
 
 helpers = require("./helpers.coffee");
 
-window.cardsDealt = helpers.dealSixRandomCards();
-
-helpers.printCardsDealt(cardsDealt);
+cardsDealt = helpers.dealSixDefinedCards();
 
 possibleHands = helpers.findAllPossibleHands(cardsDealt);
 
 possibleHands = helpers.scorePossibleHands(possibleHands);
 
-helpers.printAllPossibleHandScores(possibleHands);
-
 
 },{"./helpers.coffee":2}],2:[function(require,module,exports){
-var $, dealSixRandomCards, printAllPossibleHandScores, printCardsDealt, printIndividualHandScore, random, scoreFifteens, scoreFlush, scoreIndividualHand, scoreNobs, scorePairs, scorePossibleHands, scoreRuns, valueSum;
+var $, dealSixDefinedCards, dealSixRandomCards, printAllPossibleHandScores, printCardsDealt, printIndividualHandScore, random, scoreFlush, scoreIndividualHand, scoreNobs, scorePairs, scorePossibleHands, scoreRuns, valueSum;
 
 $ = require("jquery");
 
@@ -49,7 +45,7 @@ scoreIndividualHand = function(hand) {
   return score;
 };
 
-scoreFifteens = function(hand) {
+window.scoreFifteens = function(hand) {
   var threeCardFifteen;
   threeCardFifteen = function(hand) {};
   return hand = threeCardFifteen(hand);
@@ -77,8 +73,6 @@ valueSum = function(cards) {
   return sum;
 };
 
-module.exports.valueSum = valueSum;
-
 dealSixRandomCards = function() {
   var cardsDealt, i, suit, value;
   cardsDealt = [];
@@ -89,6 +83,18 @@ dealSixRandomCards = function() {
     cardsDealt.push(new Card(value, suit));
     i++;
   }
+  return cardsDealt;
+};
+
+dealSixDefinedCards = function() {
+  var cardsDealt;
+  cardsDealt = [];
+  cardsDealt.push(new Card(10, 1));
+  cardsDealt.push(new Card(5, 1));
+  cardsDealt.push(new Card(6, 1));
+  cardsDealt.push(new Card(7, 1));
+  cardsDealt.push(new Card(6, 1));
+  cardsDealt.push(new Card(10, 2));
   return cardsDealt;
 };
 
@@ -143,11 +149,15 @@ module.exports.scorePossibleHands = scorePossibleHands;
 
 module.exports.dealSixRandomCards = dealSixRandomCards;
 
+module.exports.dealSixDefinedCards = dealSixDefinedCards;
+
 module.exports.printCardsDealt = printCardsDealt;
 
 module.exports.findAllPossibleHands = findAllPossibleHands;
 
 module.exports.printAllPossibleHandScores = printAllPossibleHandScores;
+
+module.exports.valueSum = valueSum;
 
 
 },{"jquery":3}],3:[function(require,module,exports){
