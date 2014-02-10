@@ -3,6 +3,18 @@ module.exports = function(grunt) {
 
   // configure tasks
   grunt.initConfig({
+
+    express: {
+      options: {
+        // Override defaults here
+      },
+      dev: {
+        options: {
+          script: 'server/server.js'
+        }
+      }
+    },
+
     coffeelint: {
       app: ['app/coffee/*.coffee']
     },
@@ -52,7 +64,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jade');
   grunt.loadNpmTasks('grunt-karma');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-express-server');
 
   // Default tasks
-  grunt.registerTask('default', ['coffeelint', 'browserify', 'jade', 'karma', 'watch']);
+  grunt.registerTask('default', ['coffeelint', 'browserify', 'jade', 'karma', 'express:dev', 'watch']);
 };

@@ -48,6 +48,7 @@
     "grunt-contrib-jade": "~0.9.1",
     "grunt-karma": "~0.6.2",
     "grunt-contrib-watch": "~0.5.3",
-    "mocha": "~1.17.1"
+    "mocha": "~1.17.1",
+    "grunt-express-server": "~0.4.11"
   }
 }
