@@ -1,5 +1,20 @@
-(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+var assert = function(test, description) {
+  if (!test) {
+    throw 'Error. ' + description;
+  }
+};
 
+var Card = function(value, suit) {
+  this.suit = suit;
+  this.value = value;
+  this.scoreValue;
+  value > 10 ? this.scoreValue = 10 : this.scoreValue = value;
+};
 
+var Hand = function(fourCardsKept, twoCardsTossed) {
+  assert(fourCardsKept !== undefined && fourCardsKept.length === 4, 'The Hand constructor expects a 4-card array.');
+  assert(twoCardsTossed !== undefined && twoCardsTossed.length === 2, 'The Hand constructor expects a 2-card array.');
 
-},{}]},{},[1])
+  this.fourCardsKept = fourCardsKept;
+  this.twoCardsTossed = twoCardsTossed;
+};

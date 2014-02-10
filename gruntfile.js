@@ -1,6 +1,4 @@
 module.exports = function(grunt) {
-  // Do grunt-related things in here
-
   // configure tasks
   grunt.initConfig({
 
@@ -14,16 +12,16 @@ module.exports = function(grunt) {
     coffeelint: {
       app: ['app/coffee/*.coffee']
     },
-    browserify: {
-      dist: {
-        files: {
-          'public/scripts/main.js': ['app/coffee/app.coffee']
-        },
-        options: {
-          transform: ['coffeeify']
-        }
-      }
-    },
+    // browserify: {
+    //   dist: {
+    //     files: {
+    //       'public/scripts/bundle.js': ['app/coffee/app.coffee']
+    //     },
+    //     options: {
+    //       transform: ['coffeeify']
+    //     }
+    //   }
+    // },
     jade: {
       compile: {
         files: {
@@ -44,7 +42,7 @@ module.exports = function(grunt) {
       },
       coffee: {
         files: ['app/coffee/*.coffee'],
-        tasks: ['coffeelint', 'browserify', 'karma'],
+        tasks: ['coffeelint', /*'browserify',*/ 'karma'],
       },
       jade: {
         files: ['app/templates/*.jade'],
@@ -53,18 +51,21 @@ module.exports = function(grunt) {
       karma: {
         files: ['test/*Spec.js'],
         tasks: ['karma']
+      },
+      js: {
+        files: ['public/scripts/*.js']
       }
     }
   });
 
   // Load plugins
   grunt.loadNpmTasks('grunt-coffeelint');
-  grunt.loadNpmTasks('grunt-browserify');
+  // grunt.loadNpmTasks('grunt-browserify');
   grunt.loadNpmTasks('grunt-contrib-jade');
   grunt.loadNpmTasks('grunt-karma');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-express-server');
 
   // Default tasks
-  grunt.registerTask('default', ['coffeelint', 'browserify', 'jade', 'karma', 'express:dev', 'watch']);
+  grunt.registerTask('default', ['coffeelint', /*'browserify',*/ 'jade', 'karma', 'express:dev', 'watch']);
 };
