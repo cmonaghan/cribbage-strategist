@@ -5,16 +5,12 @@ module.exports = function(grunt) {
   grunt.initConfig({
 
     express: {
-      options: {
-        // Override defaults here
-      },
       dev: {
         options: {
           script: 'server/server.js'
         }
       }
     },
-
     coffeelint: {
       app: ['app/coffee/*.coffee']
     },
@@ -43,6 +39,9 @@ module.exports = function(grunt) {
       }
     },
     watch: {
+      options: {
+        livereload: true,
+      },
       coffee: {
         files: ['app/coffee/*.coffee'],
         tasks: ['coffeelint', 'browserify', 'karma'],
