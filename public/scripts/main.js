@@ -5,6 +5,9 @@ var assert = function(test, description) {
 };
 
 var Card = function(value, suit) {
+  assert(value > 0 && value < 14, 'Card constructor must receive a value between 1-13.');
+  assert(suit > 0 && suit < 5, 'Card constructor must receive a suit between 1-4.');
+
   this.suit = suit;
   this.value = value;
   this.scoreValue;
@@ -12,8 +15,8 @@ var Card = function(value, suit) {
 };
 
 var Hand = function(fourCardsKept, twoCardsTossed) {
-  assert(fourCardsKept !== undefined && fourCardsKept.length === 4, 'The Hand constructor expects a 4-card array.');
-  assert(twoCardsTossed !== undefined && twoCardsTossed.length === 2, 'The Hand constructor expects a 2-card array.');
+  assert(fourCardsKept !== undefined && fourCardsKept.length === 4, 'Hand constructor expects a 4-card array.');
+  assert(twoCardsTossed !== undefined && twoCardsTossed.length === 2, 'Hand constructor expects a 2-card array.');
 
   this.fourCardsKept = fourCardsKept;
   this.twoCardsTossed = twoCardsTossed;

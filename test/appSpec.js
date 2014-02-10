@@ -1,19 +1,31 @@
-// var test = require('tape');
-// var myCode = require('../public/scripts/main.js');
-
 describe("A test", function(){
   it("should pass", function(){
     expect(true).toBe(true);
   });
 });
 
-// describe("A card", function(){
-//   var card = new myCode.Card(13,1);
+describe("A card", function(){
+  var card = new Card(13,1);
 
-//   it("should have a suit property", function(){
-//     expect(card.suit).toBe(1);
-//   });
-// });
+  it("should have a suit and value property", function(){
+    expect(card.suit).not.toBe(undefined);
+    expect(card.value).not.toBe(undefined);
+  });
+
+  it("should have a scoreValue of 10 for values exceeding 10", function(){
+    expect(new Card(13,1).scoreValue).toBe(10);
+    expect(new Card(11,1).scoreValue).toBe(10);
+    expect(new Card(9,1).scoreValue).toBe(9);
+  });
+
+  it("should throw an exception when passed illegal values or suits", function(){
+    expect( function(){ new Card(14,1); } ).toThrow();
+    expect( function(){ new Card(11,0); } ).toThrow();
+    expect( function(){ new Card(13,4); } ).not.toThrow();
+    expect( function(){ new Card(1,1); } ).not.toThrow();
+  });
+
+});
 
 // describe("Cards Dealt", function(){
 //   var testCardsDealt = [];
