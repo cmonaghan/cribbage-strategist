@@ -12,6 +12,10 @@ module.exports = function(grunt) {
     coffeelint: {
       app: ['app/coffee/*.coffee']
     },
+    jshint: {
+      app: ['public/scripts/*.js'],
+      test: ['test/*Spec.js']
+    },
     // browserify: {
     //   dist: {
     //     files: {
@@ -53,13 +57,15 @@ module.exports = function(grunt) {
         tasks: ['karma']
       },
       js: {
-        files: ['public/scripts/*.js']
+        files: ['public/scripts/*.js'],
+        tasks: ['jshint']
       }
     }
   });
 
   // Load plugins
   grunt.loadNpmTasks('grunt-coffeelint');
+  grunt.loadNpmTasks('grunt-contrib-jshint');
   // grunt.loadNpmTasks('grunt-browserify');
   grunt.loadNpmTasks('grunt-contrib-jade');
   grunt.loadNpmTasks('grunt-karma');
