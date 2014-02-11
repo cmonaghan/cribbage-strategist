@@ -59,6 +59,16 @@ describe("A hand", function(){
   });
 });
 
+describe("A hand score", function(){
+  var cardsKept = [new Card(1,1), new Card(9,2), new Card(3,4), new Card(1,4)];
+  var cardsTossed = [new Card(4,4), new Card(5,2)];
+  var hand = new Hand(cardsKept, cardsTossed);
+
+  it("should score 2 for a pair", function(){
+    expect(hand.score).toEqual(2);
+  });
+});
+
 
 // describe("Cards Dealt", function(){
 //   var testCardsDealt = [];

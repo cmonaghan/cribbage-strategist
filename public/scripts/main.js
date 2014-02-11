@@ -5,7 +5,7 @@ var assert = function(test, description) {
   }
 };
 
-// Constructors
+// -------------- Constructors -------------- //
 var Card = function(value, suit) {
   assert(typeof value === 'number' && typeof suit === 'number', 'Card constructor must receive numbers.');
   assert(value > 0 && value < 14, 'Card constructor must receive a value between 1-13.');
@@ -30,5 +30,26 @@ var Hand = function(fourCardsKept, twoCardsTossed) {
 
   this.fourCardsKept = fourCardsKept;
   this.twoCardsTossed = twoCardsTossed;
+  this.score = scoreHand(fourCardsKept);
 };
 
+// -------------- Scoring -------------- //
+var scoreHand = function(fourCardsKept){
+  var totalScore = 0;
+  totalScore += scorePairs(fourCardsKept);
+  return totalScore;
+};
+
+
+// -------------- Helpers -------------- //
+function scorePairs(fourCardsKept){
+  var pairCount = 0;
+  // sort cards by value
+  fourCardsKept = fourCardsKept.sort( function(a,b){return a.value - b.value;} );
+  for (var i = 0; i < fourCardsKept.length-1; i++) {
+    if (fourCardsKept[i].value === fourCardsKept[i+1].value) {
+      pairCount += 1;
+    }
+  }
+  return pairCount * 2; // score is 2 points per pair
+}
