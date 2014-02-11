@@ -19,13 +19,46 @@ describe("A card", function(){
   });
 
   it("should throw an exception when passed illegal values or suits", function(){
+    // new Card invocation must be wrapped in functions, otherwise error will throw outside of test
     expect( function(){ new Card(14,1); } ).toThrow();
     expect( function(){ new Card(11,0); } ).toThrow();
+
     expect( function(){ new Card(13,4); } ).not.toThrow();
     expect( function(){ new Card(1,1); } ).not.toThrow();
   });
 
+  it("should throw an exception when passed non-numbers", function(){
+    expect( function(){ new Card(7,'4'); } ).toThrow();
+    expect( function(){ new Card(7,[3]); } ).toThrow();
+    expect( function(){ new Card(7,{a:3}); } ).toThrow();
+    expect( function(){ new Card(7,true); } ).toThrow();
+  });
 });
+
+describe("A hand", function(){
+  var cardsKept = [new Card(1,1), new Card(11,3), new Card(3,4), new Card(9,4)];
+  var cardsTossed = [new Card(4,4), new Card(5,2)];
+  var hand = new Hand(cardsKept, cardsTossed);
+
+  it("should have a fourCardsKept and twoCardsTossed property", function(){
+    expect(hand.fourCardsKept).not.toBe(undefined);
+    expect(hand.twoCardsTossed).not.toBe(undefined);
+  });
+
+  it("should throw an exception when arrays are not passed", function(){
+    expect( function(){ new Hand(4,1); } ).toThrow();
+    expect( function(){ new Hand('4','1'); } ).toThrow();
+    expect( function(){ new Hand({a: 4},{b: 1}); } ).toThrow();
+  });
+
+  it("should throw an exception if passed arrays with non-card objects", function(){
+    var cardsKept = [new Card(1,1), new Card(11,3), new Card(3,4), 9]; // last value is not a card
+    var cardsTossed = [new Card(4,4), new Card(5,2)];
+
+    expect( function(){ new Hand(cardsKept, cardsTossed); } ).toThrow();
+  });
+});
+
 
 // describe("Cards Dealt", function(){
 //   var testCardsDealt = [];
