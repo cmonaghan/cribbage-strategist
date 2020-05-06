@@ -24,7 +24,7 @@
     "jade": "~1.1.5",
     "coffee-script": "~1.7.1",
     "browserify": "~3.24.8",
-    "jquery": "~3.4.1",
+    "jquery": "~3.5.0",
     "coffeeify": "~0.6.0"
   },
   "engines": {
